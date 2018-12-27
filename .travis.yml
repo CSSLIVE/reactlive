@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+ - "node"
+after_success:
+ - git config --global user.name "phpsmarter"
+ - git config --global user.email "3238355967QQ.com"
+ - git remote rm origin
+ - git remote add origin https://phpsmarter:${90dc7364acc10fe7e3283d47676e501d258e5c65}@github.com/CSSLIVE/reactlive.git
+ - npm run deploy
