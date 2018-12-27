@@ -318,4 +318,24 @@ const cssGrid=`
 
    )
 `
-export {code1,code2,code3,code4,code5,code6,code7,subGrid,cssGrid};
+
+const ramdaCode1 = `
+      const List = items => <ul>{items}</ul>
+      const Item = todo => <li key={todo.id}>{todo.text}</li>
+      const getTodos = R.prop('todos')
+      const TodoList = R.compose(List, R.map(Item), getTodos)
+      const props = {todos: [{id: 1, text: 'foo'}, {id: 2, text: 'bar'}]}
+    
+  
+      render(<TodoList {...props} />);
+  `
+
+const codes=[
+            {code:code1,step:{step1:'step1',step2:'step2',step3:'step3'}},
+            {code:code2,step:{step1:'step1',step2:'step2',step3:'step3'}},
+            {code:code3,step:{step1:'step1',step2:'step2',step3:'step3'}},
+            {code:ramdaCode1,step:{step1:'step1',step2:'step2',step3:'step3'}}
+
+           ];
+
+export {codes};

@@ -9,34 +9,41 @@ import {
 } from 'react-live'
 
 const CodeContainer=styled(LiveProvider)`
-    display:flex;
-    width:80%;
+    display:grid;
+    width:100%;
     margin:0 auto;
     background-color:'#e9ecef';
     flex-direction:'row';
     justify-items:'center';
     align-items:'center';
     box-shadow: rgba(20, 20, 20, 0.27) 0.0555556rem 0.0555556rem 1.11111rem;
-    border-radius:5px;
-    
+    border-radius:4px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding:5px;
   
 `
 
 
 const   Code=styled(LiveEditor)`
-        flex:2;
-        border-radius:3px;
+        grid-row: span 3;
+        grid-column:span 2;
+        border-radius:0px;
+        
         
         
   
 `
 const  Preview=styled(LivePreview)`
-      flex:1;
+      grid-row:span 2;
+      grid-column:span 1;
       background-color:papayawhip;
-      height:200px;
+      
       border:1px solid rgba(222,222,222,.2);
-      border-radius:3px;
-      padding:10px;
+      border-radius:0px;
+      padding:5px;
+
+      :hover{background-color:red;}
       
 
 `
@@ -56,9 +63,10 @@ const Step=(props)=>{
 }
 
 const  Note=styled(Step)`
-    flex:1;
+    grid-row:span 1;
+    grid-column:span 1;
     background-color:#fdae0c;
-    height:50%;
+    
 `
 
 
@@ -84,6 +92,7 @@ const CodeTitle=styled(CardHeader)`
         text-shadow:1px 1px 1px #dedede;
         margin:0 auto;
 `
+
 const LiveCode=(props)=>{
     const code=props.code;
     const scope=props.scope;
@@ -93,7 +102,7 @@ const LiveCode=(props)=>{
       <Jumbotron width="100%">
         {text&&<CodeTitle>{text}</CodeTitle>}
          <CodeContainer code={code} scope={scope} noInline={true}>
-                <Code />
+                 <Code />
                  <Error />
                  <section style={{flexDirection:'column',flex:1,height:'100%'}}>
                   <Preview/>
